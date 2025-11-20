@@ -39,9 +39,9 @@ Lighter and faster, uses OpenAI API for answer generation.
 pip install -r requirements.txt
 ```
 
-Set your OpenAI API key:
-```bash
-export OPENAI_API_KEY='your-api-key-here'
+Add your OpenAI API key to `.env` file:
+```
+OPENAI_API_KEY='your-api-key-here'
 ```
 
 ### Option 2: Local LLM
