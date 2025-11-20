@@ -4,6 +4,8 @@ from split_text import split_docs
 from create_embeddings import get_embeddings
 from store_faiss import build_faiss_index, save_metadata
 from generate_answer import generate_answer
+from generate_answer_api import generate_answer_api
+
 
 def run_pipeline():
     """
@@ -33,9 +35,10 @@ def run_pipeline():
         save_metadata(texts)
         print("Stored embeddings and metadata successfully.\n")
 
-    print("Retrieve faiss index & Generate Answer:")
     query = "Does unsupervised ML cover regression tasks?"
-    generate_answer(query)
+    print(f"Retrieving faiss index & generating answer to: {query}\n")
+    # generate_answer(query)  # Uncomment to use local LLM; commented to avoid long processing times
+    generate_answer_api(query)
 
 if __name__ == "__main__":
     run_pipeline()
