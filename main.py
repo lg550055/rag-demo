@@ -35,9 +35,15 @@ def run_pipeline():
         save_metadata(texts)
         print("Stored embeddings and metadata successfully.\n")
 
-    query = "Does unsupervised ML cover regression tasks?"
-    print(f"Retrieving faiss index & generating answer to: {query}\n")
-    # generate_answer(query)  # Uncomment to use local LLM; commented to avoid long processing times
+    # Ask user for query or use default
+    default_query = "Does unsupervised ML cover regression tasks?"
+    print(f"\nDefault query: {default_query}")
+    user_input = input("Enter your query (or press Enter to use default): ").strip()
+
+    query = user_input if user_input else default_query
+    print(f"\nRetrieving faiss index & generating answer to: {query}\n")
+
+    # generate_answer(query)  # Uncomment to use local LLM; beware of long processing times
     generate_answer_api(query)
 
 if __name__ == "__main__":
